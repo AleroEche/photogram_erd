@@ -15,7 +15,7 @@
     </label>
 
     <!-- Input for receipient_id start -->
-    <input type="text" id="receipient_id" name="receipient_id" class="form-control" value="<%= @friend_request.receipient_id %>">
+    <%= select_tag(:receipient_id, options_from_collection_for_select(User.all, :id, :user_name, @friend_request.receipient_id), :class => "form-control") %>
     <!-- Input for receipient_id end -->
   </div>
   <!-- Label and input for receipient_id end -->
