@@ -1,0 +1,56 @@
+<!-- Validation failure messages -->
+<% if @friend_request.present? %>
+  <% if @friend_request.errors.any? %>
+    <% @friend_request.errors.full_messages.each do |message| %>
+      <div class="alert alert-danger">
+        <%= message %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<h1>
+  Add a new friend request
+</h1>
+
+
+<hr>
+
+<!-- Form friend_request start -->
+<form action="/create_friend_request" method="post">
+<!-- Form friend_request end -->
+
+  <!-- Label and input for receipient_id start -->
+  <div class="form-group">
+    <label for="receipient_id">
+      Receipient
+    </label>
+
+    <!-- Input for receipient_id start -->
+    <input type="text" id="receipient_id" name="receipient_id" class="form-control" value="<%= @friend_request.receipient_id %>">
+    <!-- Input for receipient_id end -->
+  </div>
+  <!-- Label and input for receipient_id end -->
+
+  <!-- Label and input for sender_id start -->
+  <div class="form-group">
+    <label for="sender_id">
+      Sender
+    </label>
+
+    <!-- Input for sender_id start -->
+    <input type="text" id="sender_id" name="sender_id" class="form-control" value="<%= @friend_request.sender_id %>">
+    <!-- Input for sender_id end -->
+  </div>
+  <!-- Label and input for sender_id end -->
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create friend request
+  </button>
+</form>
+
+<hr>
+
+<a href="/friend_requests">
+  Go back
+</a>
