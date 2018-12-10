@@ -74,7 +74,11 @@
 
         <!-- Display photo.user_id start -->
         <td>
-          <%= photo.user.user_name %>
+          <% if photo.user.present? %>
+            <a href="/users/<%= photo.user.id %>">
+              <%= photo.user.user_name %>
+            </a>
+          <% end %>
         </td>
         <!-- Display photo.user_id end -->
 

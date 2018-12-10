@@ -58,7 +58,11 @@
 
         <!-- Display friend_request.receipient_id start -->
         <td>
-          <%= friend_request.receipient.user_name %>
+          <% if friend_request.receipient.present? %>
+            <a href="/users/<%= friend_request.receipient.id %>">
+              <%= friend_request.receipient.user_name %>
+            </a>
+          <% end %>
         </td>
         <!-- Display friend_request.receipient_id end -->
 
